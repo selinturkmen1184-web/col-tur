@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-
 :root {
   --ink: #102438;
   --navy: #0b2941;
@@ -16,7 +14,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; color: var(--ink); background: #fff; font-family: "DM Sans", system-ui, sans-serif; }
+body { margin: 0; color: var(--ink); background: #fff; font-family: Inter, "Avenir Next", "Segoe UI", system-ui, sans-serif; }
 button, input, select { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; text-decoration: none; }
@@ -62,8 +60,8 @@ img { display: block; width: 100%; }
 .avatar-stack span:nth-child(3) { background: #c4a56c; }
 .hero-trust > div:last-child { display: grid; gap: 2px; }
 .hero-trust strong { font-size: 14px; color: var(--navy); }
-.hero-trust strong::before { content: "★★★★★"; color: #ffb243; font-size: 11px; letter-spacing: 1px; margin-right: 9px; }
 .hero-trust span { color: var(--muted); font-size: 12px; }
+.trust-seal { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--aqua); color: var(--blue); font-size: 19px; font-weight: 800; }
 
 .hero-visual { align-self: stretch; min-height: 605px; margin-right: -7vw; position: relative; clip-path: ellipse(64% 65% at 52% 44%); }
 .hero-visual > img { height: 100%; object-fit: cover; object-position: 48% 44%; }
@@ -100,7 +98,7 @@ img { display: block; width: 100%; }
 
 .tours-section { background: #fff; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 48px; margin-bottom: 40px; }
-.section-heading h2, .route-content h2, .review-copy h2, .cta-inner h2 { margin: 12px 0 0; font: 800 clamp(34px, 4vw, 52px)/1.08 "Manrope", sans-serif; letter-spacing: -.055em; color: var(--navy); }
+.section-heading h2, .route-content h2, .guide-grid h2, .faq-heading h2, .review-copy h2, .cta-inner h2 { margin: 12px 0 0; font: 800 clamp(34px, 4vw, 52px)/1.08 "Avenir Next", "Segoe UI", sans-serif; letter-spacing: -.055em; color: var(--navy); }
 .section-heading > p { max-width: 415px; margin: 0 0 4px; color: var(--muted); font-size: 15px; line-height: 1.65; }
 .category-row { display: flex; gap: 9px; overflow-x: auto; padding: 0 0 25px; scrollbar-width: none; }
 .category-row::-webkit-scrollbar { display: none; }
@@ -154,6 +152,13 @@ img { display: block; width: 100%; }
 .text-link { display: inline-flex; align-items: center; gap: 17px; color: var(--navy); font-size: 13px; font-weight: 800; border-bottom: 1px solid var(--navy); padding-bottom: 5px; }
 .text-link span { color: var(--coral); }
 
+.guide-section { background: white; }
+.guide-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: start; }
+.guide-grid h2 { max-width: 590px; }
+.guide-copy { display: grid; gap: 18px; }
+.guide-copy p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+.guide-copy strong { color: var(--navy); }
+
 .why-section { background: var(--navy); color: white; position: relative; overflow: hidden; }
 .why-section::after { content: "COL"; position: absolute; right: -30px; bottom: -75px; color: rgba(255,255,255,.025); font: 800 260px "Manrope", sans-serif; letter-spacing: -.08em; }
 .section-heading.centered { display: block; text-align: center; max-width: 680px; margin: 0 auto 58px; }
@@ -166,6 +171,18 @@ img { display: block; width: 100%; }
 .why-icon { width: 56px; height: 56px; display: grid; place-items: center; margin-bottom: 24px; border: 1px solid rgba(255,255,255,.24); border-radius: 50%; color: #ff8a6f; font-size: 23px; }
 .why-grid h3 { font: 700 18px "Manrope", sans-serif; }
 .why-grid p { color: rgba(255,255,255,.6); font-size: 13px; line-height: 1.7; }
+
+.faq-section { background: #f8fbfa; }
+.faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; align-items: start; }
+.faq-heading { position: sticky; top: 30px; }
+.faq-heading p { max-width: 450px; margin: 20px 0 28px; color: var(--muted); line-height: 1.7; }
+.faq-list { border-top: 1px solid var(--line); }
+.faq-list details { border-bottom: 1px solid var(--line); }
+.faq-list summary { list-style: none; min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--navy); font: 700 16px/1.45 "Avenir Next", "Segoe UI", sans-serif; cursor: pointer; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary span { color: var(--coral); font-size: 24px; transition: transform .2s; }
+.faq-list details[open] summary span { transform: rotate(45deg); }
+.faq-list details p { margin: -4px 44px 24px 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
 
 .review-section { background: #fff; }
 .review-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 90px; align-items: center; }
@@ -181,6 +198,8 @@ img { display: block; width: 100%; }
 .review-score > small { color: var(--muted); font-size: 10px; }
 .score-bars { display: flex; gap: 4px; justify-content: center; margin-top: 14px; }
 .score-bars i { width: 24px; height: 3px; background: var(--coral); border-radius: 2px; }
+.score-steps { display: flex; gap: 5px; justify-content: center; margin-top: 16px; }
+.score-steps i { padding: 6px 8px; border-radius: 20px; background: rgba(11,41,65,.08); color: var(--navy); font-size: 9px; font-style: normal; font-weight: 800; }
 
 .cta-section { background: var(--coral); color: #fff; }
 .cta-inner { min-height: 245px; display: flex; align-items: center; justify-content: space-between; gap: 45px; }
@@ -204,20 +223,29 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
 
 .mobile-bar { display: none; }
 .modal-backdrop { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(5,24,37,.68); backdrop-filter: blur(8px); }
-.booking-modal { width: min(470px, 100%); position: relative; padding: 40px; border-radius: 18px; background: white; box-shadow: 0 30px 90px rgba(0,0,0,.25); }
+.modal-backdrop-close { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; cursor: default; }
+.booking-modal { z-index: 1; width: min(470px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; position: relative; padding: 40px; border-radius: 18px; background: white; box-shadow: 0 30px 90px rgba(0,0,0,.25); }
 .modal-close { position: absolute; right: 14px; top: 13px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: #f1f3f3; color: var(--navy); font-size: 24px; cursor: pointer; }
 .booking-modal h2 { margin: 10px 30px 7px 0; font: 800 26px/1.2 "Manrope", sans-serif; letter-spacing: -.04em; }
-.booking-modal > p { margin: 0 0 25px; color: var(--muted); font-size: 13px; }
-.booking-modal > label { display: grid; gap: 8px; padding: 15px 0; border-top: 1px solid var(--line); }
-.booking-modal label > span { color: var(--muted); font-size: 11px; font-weight: 700; }
-.booking-modal input { height: 44px; border: 1px solid var(--line); border-radius: 8px; padding: 0 12px; color: var(--navy); }
+.booking-modal form > p { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+.booking-modal form > label, .booking-fields label, .counter-field { display: grid; gap: 8px; padding: 12px 0; border-top: 1px solid var(--line); }
+.booking-modal label > span, .counter-field > span { color: var(--muted); font-size: 11px; font-weight: 700; }
+.booking-modal input, .booking-modal textarea { width: 100%; min-height: 44px; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; color: var(--navy); background: white; resize: vertical; }
+.booking-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+.booking-modal .honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); padding: 0; border: 0; }
 .counter { height: 44px; display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--line); border-radius: 8px; }
 .counter button { width: 44px; height: 100%; border: 0; background: transparent; color: var(--coral); font-size: 20px; cursor: pointer; }
 .modal-total { display: flex; justify-content: space-between; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--line); }
 .modal-total span { font-size: 12px; color: var(--muted); }
 .modal-total strong { font: 800 26px "Manrope", sans-serif; }
 .modal-submit, .request-success button { width: 100%; height: 50px; border: 0; border-radius: 9px; background: var(--coral); color: white; font-weight: 800; cursor: pointer; }
+.modal-submit:disabled { cursor: wait; opacity: .7; }
 .modal-disclaimer { display: block; text-align: center; margin-top: 11px; color: #8a979f; }
+.booking-modal .consent { grid-template-columns: 18px 1fr; align-items: start; border: 0; padding-top: 0; }
+.booking-modal .consent input { width: 17px; min-height: 17px; margin: 1px 0 0; accent-color: var(--coral); }
+.booking-modal .consent span { line-height: 1.5; }
+.booking-error { padding: 10px 12px; border-radius: 8px; background: #fff1ee; color: #9e3d2b !important; line-height: 1.5; }
+.booking-error a { text-decoration: underline; font-weight: 700; }
 .request-success { padding: 18px 0 4px; text-align: center; }
 .request-success > span { width: 62px; height: 62px; display: grid; place-items: center; margin: 0 auto; border-radius: 50%; background: var(--aqua); color: var(--blue); font-size: 27px; }
 .request-success h2 { margin: 18px 0 10px; }
@@ -258,6 +286,8 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .trust-grid > div:first-child { padding-left: 15px; }
   .route-grid { grid-template-columns: 1fr; }
   .route-image { width: min(530px, 90%); height: 580px; margin: 0 auto; }
+  .guide-grid, .faq-grid { grid-template-columns: 1fr; gap: 48px; }
+  .faq-heading { position: static; }
   .why-grid { grid-template-columns: 1fr; }
   .why-grid article { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.13); }
   .review-grid { grid-template-columns: 1fr; gap: 45px; }
@@ -284,7 +314,7 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .trust-grid { grid-template-columns: 1fr; }
   .trust-grid > div:nth-child(n+3) { display: none; }
   .section-heading { display: block; margin-bottom: 30px; }
-  .section-heading h2, .route-content h2, .cta-inner h2 { font-size: 35px; }
+  .section-heading h2, .route-content h2, .guide-grid h2, .faq-heading h2, .cta-inner h2 { font-size: 35px; }
   .section-heading > p { margin-top: 15px; }
   .tour-grid { grid-template-columns: 1fr; }
   .card-image { height: 245px; }
@@ -304,4 +334,5 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .mobile-bar strong { font-size: 12px; }
   .mobile-bar a { padding: 12px 15px; border-radius: 8px; background: var(--coral); font-size: 11px; font-weight: 800; }
   .booking-modal { padding: 32px 24px 24px; }
+  .booking-fields { grid-template-columns: 1fr; }
 }

@@ -38,3 +38,8 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+
+# unused initializer duplicates kept locally
+/app/* 2.*
+/README 2.md
+/vite.config 2.ts

@@ -13,6 +13,13 @@ const eslintConfig = defineConfig([
     "dist/**",
     "out/**",
     "build/**",
+    "work/**",
+    ".vinext/**",
+    ".wrangler/**",
+    "outputs/**",
+    "app/* 2.*",
+    "README 2.md",
+    "vite.config 2.ts",
     "next-env.d.ts",
   ]),
   eslint.configs.recommended,
@@ -34,6 +41,9 @@ const eslintConfig = defineConfig([
       react: {
         version: "detect",
       },
+    },
+    rules: {
+      "@next/next/no-img-element": "off",
     },
   },
 ]);
