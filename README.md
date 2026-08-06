@@ -8,7 +8,7 @@ Antalya şehir turları, tekne gezileri ve kültür rotaları için hazırlanmı
 - Ayrıntılı tur kartları ve fiyat gösterimi
 - Rezervasyon talep arayüzü
 - Mobil menü ve sabit mobil rezervasyon çubuğu
-- GitHub Pages için otomatik yayın akışı
+- GitHub Pages için hazır üretim paketi
 
 ## Yerel geliştirme
 
