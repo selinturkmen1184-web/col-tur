@@ -24,7 +24,7 @@ const tours: Tour[] = [
     duration: "Tam gün",
     price: 990,
     badge: "Şehir & Deniz",
-    image: "./images/hero.jpg",
+    image: "./images/lara/antalya-duden.jpg",
     highlights: ["Otel transferi", "Öğle yemeği"],
   },
   {
@@ -35,7 +35,7 @@ const tours: Tour[] = [
     duration: "7 saat",
     price: 1150,
     badge: "Turkuaz Rota",
-    image: "./images/turquoise.jpg",
+    image: "./images/lara/adrasan-koy.jpg",
     highlights: ["3 yüzme molası", "Teknede öğle yemeği"],
   },
   {
@@ -46,7 +46,7 @@ const tours: Tour[] = [
     duration: "Tam gün",
     price: 1850,
     badge: "Kültür Rotası",
-    image: "./images/pamukkale.jpg",
+    image: "./images/lara/pamukkale.jpg",
     highlights: ["Profesyonel rehber", "Açık büfe öğle yemeği"],
   },
   {
@@ -83,6 +83,170 @@ const tours: Tour[] = [
 ];
 
 const categories = ["Tümü", "Şehir Turları", "Tekne Turları", "Kültür", "Doğa"];
+
+const laraRoutes = [
+  {
+    title: "Antalya Şehir Turu",
+    note: "Düden Şelalesi · Kaleiçi · tekne gezisi",
+    image: "./images/lara/antalya-duden.jpg",
+    alt: "Antalya Düden Şelalesi ve şehir manzarası",
+    className: "gallery-wide",
+  },
+  {
+    title: "Adrasan & Suluada",
+    note: "Turkuaz koylarda yüzme molaları",
+    image: "./images/lara/suluada-ada.jpg",
+    alt: "Suluada kıyısında tur tekneleri ve turkuaz deniz",
+    className: "gallery-tall",
+  },
+  {
+    title: "Antalya Akvaryum",
+    note: "Ailece su altı dünyasını keşif",
+    image: "./images/lara/antalya-akvaryum.jpg",
+    alt: "Antalya Akvaryum su altı tünelinde balina köpek balığı",
+    className: "",
+  },
+  {
+    title: "Perge, Aspendos & Side",
+    note: "Antik kentler arasında kültür rotası",
+    image: "./images/lara/perge-aspendos.jpg",
+    alt: "Perge Antik Kenti sütunlu caddesi",
+    className: "",
+  },
+  {
+    title: "Demre, Myra & Kekova",
+    note: "Tarih ve denizin buluştuğu rota",
+    image: "./images/lara/demre-kekova.jpg",
+    alt: "Kekova kıyısındaki tarihi yerleşim ve deniz",
+    className: "gallery-wide",
+  },
+  {
+    title: "Kapadokya",
+    note: "Antalya çıkışlı masalsı yolculuk",
+    image: "./images/lara/kapadokya.jpg",
+    alt: "Kapadokya vadisinde kalp şeklindeki fotoğraf noktası",
+    className: "",
+  },
+  {
+    title: "Yunus Gösterisi",
+    note: "Lara’da su dünyası deneyimi",
+    image: "./images/lara/yunus-gosterisi.jpg",
+    alt: "Yunuslarla su altı deneyimi",
+    className: "",
+  },
+  {
+    title: "Özel Balık Avı",
+    note: "Akdeniz’de ekipmanlı tekne turu",
+    image: "./images/lara/balik-avi.jpg",
+    alt: "Akdeniz balık avı teknesinde tutulan balıklar",
+    className: "",
+  },
+  {
+    title: "Korsan Tekne Turu",
+    note: "Düden Şelalesi önünde eğlenceli deniz rotası",
+    image: "./images/lara/korsan-tekne.jpg",
+    alt: "Düden Şelalesi önünde korsan temalı tur teknesi",
+    className: "gallery-wide",
+  },
+  {
+    title: "Green Canyon",
+    note: "Kanyon manzarasında sakin tekne gezisi",
+    image: "./images/lara/green-canyon.jpg",
+    alt: "Green Canyon içinde tur teknesi",
+    className: "",
+  },
+  {
+    title: "At Safari",
+    note: "Çam ormanında rehberli doğa deneyimi",
+    image: "./images/lara/at-safari.jpg",
+    alt: "Çam ormanında at safari deneyimi",
+    className: "",
+  },
+  {
+    title: "Jeep Safari",
+    note: "Toroslar’da macera ve eğlence",
+    image: "./images/lara/jeep-safari.jpg",
+    alt: "Toroslar rotasında yeşil safari araçları",
+    className: "",
+  },
+  {
+    title: "Kemer Mega Star",
+    note: "Koylar ve yüzme molalarıyla tam gün",
+    image: "./images/lara/kemer-mega-star.jpg",
+    alt: "Kemer kıyısında Mega Star tur teknesi",
+    className: "gallery-wide",
+  },
+  {
+    title: "The Land of Legends",
+    note: "Su parkı ve tema parkında tam gün",
+    image: "./images/lara/land-of-legends.jpg",
+    alt: "The Land of Legends su parkı ve kaydırakları",
+    className: "gallery-wide",
+  },
+  {
+    title: "Land of Lions",
+    note: "Vahşi yaşamı yakından keşfet",
+    image: "./images/lara/land-of-lions.jpg",
+    alt: "Land of Lions yaşam parkında timsah",
+    className: "",
+  },
+  {
+    title: "Pamukkale & Hierapolis",
+    note: "Beyaz travertenler ve antik kent",
+    image: "./images/lara/pamukkale.jpg",
+    alt: "Pamukkale beyaz travertenleri ve termal havuzları",
+    className: "",
+  },
+  {
+    title: "Yamaç Paraşütü",
+    note: "Alanya kıyılarının üzerinde tandem uçuş",
+    image: "./images/lara/yamac-parasutu.jpg",
+    alt: "Alanya kıyıları üzerinde tandem yamaç paraşütü",
+    className: "gallery-tall",
+  },
+  {
+    title: "Peloid Türk Hamamı",
+    note: "Hamam, sauna ve dinlenme deneyimi",
+    image: "./images/lara/peloid-hamam.jpg",
+    alt: "Peloid Türk hamamı dinlenme alanı",
+    className: "",
+  },
+  {
+    title: "Köprülü Kanyon Rafting",
+    note: "Doğanın içinde yüksek enerjili macera",
+    image: "./images/lara/rafting.jpg",
+    alt: "Köprülü Kanyon'da rafting yapan grup",
+    className: "gallery-wide",
+  },
+  {
+    title: "Rafting & Buggy Combo",
+    note: "Tek günde iki farklı macera",
+    image: "./images/lara/rafting-buggy-combo.jpg",
+    alt: "Doğa parkurunda buggy safari aracı",
+    className: "",
+  },
+  {
+    title: "Relax Tekne Turu",
+    note: "Düden Şelalesi manzarasında sakin rota",
+    image: "./images/lara/relax-boat.jpg",
+    alt: "Düden Şelalesi önünde gezi teknesi",
+    className: "gallery-wide",
+  },
+  {
+    title: "Scuba Diving",
+    note: "Eğitmen eşliğinde Akdeniz’in altını keşfet",
+    image: "./images/lara/scuba-diving.jpg",
+    alt: "Akdeniz'de tüplü dalış yapan misafir",
+    className: "gallery-tall",
+  },
+  {
+    title: "Türk Hamamı",
+    note: "Köpük masajı ve geleneksel bakım",
+    image: "./images/lara/turk-hamami.jpg",
+    alt: "Türk hamamı masaj ve bakım odası",
+    className: "",
+  },
+];
 
 const faqs = [
   {
@@ -139,6 +303,7 @@ const structuredData = {
         item: {
           "@type": "TouristTrip",
           name: tour.title,
+          image: `https://coltur.com.tr/${tour.image.replace("./", "")}`,
           description: `${tour.location} · ${tour.duration.toLocaleLowerCase("tr-TR")} ${tour.category.toLocaleLowerCase("tr-TR")} deneyimi.`,
           touristType: ["Aileler", "Çiftler", "Arkadaş grupları"],
           offers: {
@@ -240,6 +405,7 @@ export default function Home() {
 
           <nav className={menuOpen ? "nav-links nav-links-open" : "nav-links"} aria-label="Ana menü">
             <a href="#turlar" onClick={() => setMenuOpen(false)}>Turlar</a>
+            <a href="#galeri" onClick={() => setMenuOpen(false)}>Tur Galerisi</a>
             <a href="#rota" onClick={() => setMenuOpen(false)}>Antalya Rotası</a>
             <a href="#neden-biz" onClick={() => setMenuOpen(false)}>Neden Col Tur?</a>
             <a href="#sss" onClick={() => setMenuOpen(false)}>Sık Sorulanlar</a>
@@ -273,9 +439,9 @@ export default function Home() {
           </div>
 
           <div className="hero-visual">
-            <img src="./images/hero.jpg" alt="Antalya Kaleiçi limanı ve tur tekneleri" width="1000" height="1500" fetchPriority="high" />
+            <img src="./images/lara/antalya-duden-hero.jpg" alt="Antalya Düden Şelalesi ve Akdeniz kıyısı" width="1200" height="1799" fetchPriority="high" />
             <div className="hero-stamp"><strong>COL</strong><span>yerel rota</span></div>
-            <div className="hero-caption"><span>01</span><div><strong>Kaleiçi, Antalya</strong><small>Günün ilk ışıklarıyla</small></div></div>
+            <div className="hero-caption"><span>01</span><div><strong>Düden, Antalya</strong><small>Şehrin denizle buluştuğu yer</small></div></div>
           </div>
         </div>
 
@@ -344,6 +510,24 @@ export default function Home() {
           ) : (
             <div className="empty-state"><strong>Bu aramaya uygun tur bulamadık.</strong><span>Başka bir bölge veya kategori deneyebilirsin.</span></div>
           )}
+        </div>
+      </section>
+
+      <section className="gallery-section section" id="galeri" aria-labelledby="gallery-title">
+        <div className="container">
+          <div className="section-heading gallery-heading">
+            <div><span className="eyebrow">LARA ÇIKIŞLI ROTALAR</span><h2 id="gallery-title">Gitmeden önce manzaraya göz at.</h2></div>
+            <p>Tur arşivinden seçilen rota fotoğraflarıyla Antalya ve çevresinde seni bekleyen deneyimleri keşfet.</p>
+          </div>
+          <div className="gallery-grid">
+            {laraRoutes.map((route) => (
+              <a className={`gallery-card ${route.className}`.trim()} href="#turlar" key={route.title} aria-label={`${route.title} turunu incele`}>
+                <img src={route.image} alt={route.alt} loading="lazy" decoding="async" width="1600" height="1067" />
+                <span className="gallery-shade" aria-hidden="true" />
+                <span className="gallery-copy"><strong>{route.title}</strong><small>{route.note}</small></span>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 

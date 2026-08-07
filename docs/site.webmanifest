@@ -1,0 +1,9 @@
+{
+  "name": "Col Tur Antalya Turları",
+  "short_name": "Col Tur",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b2941",
+  "lang": "tr-TR"
+}
