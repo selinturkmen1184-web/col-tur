@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://coltur.com.tr/</loc>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/antalya-duden-hero.jpg</image:loc><image:title>Antalya turları ve Düden Şelalesi</image:title></image:image>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/suluada-ada.jpg</image:loc><image:title>Antalya Suluada tekne turu</image:title></image:image>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/pamukkale.jpg</image:loc><image:title>Antalya çıkışlı Pamukkale turu</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://coltur.com.tr/antalya-turlari/</loc>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/antalya-duden-hero.jpg</image:loc><image:title>Antalya turları 2026</image:title></image:image>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/rafting.jpg</image:loc><image:title>Antalya rafting turu</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://coltur.com.tr/antalya-sehir-turu/</loc>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/antalya-duden.jpg</image:loc><image:title>Antalya şehir turu Düden Şelalesi</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://coltur.com.tr/antalya-tekne-turlari/</loc>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/suluada-ada.jpg</image:loc><image:title>Antalya tekne turları Suluada</image:title></image:image>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/kemer-mega-star.jpg</image:loc><image:title>Antalya Kemer tekne turu</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://coltur.com.tr/antalya-cikisli-gunubirlik-turlar/</loc>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/rafting.jpg</image:loc><image:title>Antalya çıkışlı rafting turu</image:title></image:image>
+    <image:image><image:loc>https://coltur.com.tr/images/lara/demre-kekova.jpg</image:loc><image:title>Antalya çıkışlı Demre Myra Kekova turu</image:title></image:image>
+  </url>
+</urlset>

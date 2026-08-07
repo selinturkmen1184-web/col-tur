@@ -134,7 +134,7 @@ img { display: block; width: 100%; }
 .gallery-section { background: #f8fbfa; }
 .gallery-heading { align-items: end; }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 255px; grid-auto-flow: dense; gap: 17px; }
-.gallery-card { min-width: 0; min-height: 0; overflow: hidden; position: relative; border-radius: 15px; background: var(--navy); isolation: isolate; }
+.gallery-card { min-width: 0; min-height: 0; width: 100%; overflow: hidden; position: relative; padding: 0; border: 0; border-radius: 15px; background: var(--navy); color: white; font: inherit; text-align: left; cursor: pointer; isolation: isolate; }
 .gallery-card.gallery-wide { grid-column: span 2; }
 .gallery-card.gallery-tall { grid-row: span 2; }
 .gallery-card img { height: 100%; object-fit: cover; transition: transform .65s ease; }
@@ -143,6 +143,7 @@ img { display: block; width: 100%; }
 .gallery-copy { position: absolute; z-index: 2; left: 23px; right: 23px; bottom: 21px; display: grid; gap: 5px; color: white; }
 .gallery-copy strong { font: 800 19px/1.2 "Manrope", sans-serif; letter-spacing: -.025em; }
 .gallery-copy small { color: rgba(255,255,255,.74); font-size: 11px; line-height: 1.45; }
+.gallery-copy i { margin-top: 5px; color: #fff; font-size: 9px; font-style: normal; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; opacity: .82; }
 
 .route-section { background: var(--sand); }
 .route-grid { display: grid; grid-template-columns: .95fr 1fr; gap: 92px; align-items: center; }
@@ -171,6 +172,15 @@ img { display: block; width: 100%; }
 .guide-copy { display: grid; gap: 18px; }
 .guide-copy p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
 .guide-copy strong { color: var(--navy); }
+
+.seo-hub { background: #f3f8f7; }
+.seo-hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.seo-hub-grid > a { min-height: 260px; display: flex; flex-direction: column; align-items: flex-start; padding: 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; transition: transform .2s ease, box-shadow .2s ease; }
+.seo-hub-grid > a:hover { position: relative; z-index: 1; transform: translateY(-5px); box-shadow: var(--shadow); }
+.seo-hub-grid span { color: var(--coral); font: 800 11px "Manrope", sans-serif; letter-spacing: .12em; }
+.seo-hub-grid h3 { margin: 26px 0 12px; color: var(--navy); font: 800 20px/1.25 "Manrope", sans-serif; letter-spacing: -.03em; }
+.seo-hub-grid p { margin: 0 0 24px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.seo-hub-grid strong { margin-top: auto; color: var(--blue); font-size: 11px; }
 
 .why-section { background: var(--navy); color: white; position: relative; overflow: hidden; }
 .why-section::after { content: "COL"; position: absolute; right: -30px; bottom: -75px; color: rgba(255,255,255,.025); font: 800 260px "Manrope", sans-serif; letter-spacing: -.08em; }
@@ -238,6 +248,7 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
 .modal-backdrop { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(5,24,37,.68); backdrop-filter: blur(8px); }
 .modal-backdrop-close { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; cursor: default; }
 .booking-modal { z-index: 1; width: min(470px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; position: relative; padding: 40px; border-radius: 18px; background: white; box-shadow: 0 30px 90px rgba(0,0,0,.25); }
+.booking-modal.tour-detail-modal { width: min(760px, 100%); }
 .modal-close { position: absolute; right: 14px; top: 13px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: #f1f3f3; color: var(--navy); font-size: 24px; cursor: pointer; }
 .booking-modal h2 { margin: 10px 30px 7px 0; font: 800 26px/1.2 "Manrope", sans-serif; letter-spacing: -.04em; }
 .booking-modal form > p { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
@@ -252,6 +263,8 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
 .modal-total span { font-size: 12px; color: var(--muted); }
 .modal-total strong { font: 800 26px "Manrope", sans-serif; }
 .modal-submit, .request-success button { width: 100%; height: 50px; border: 0; border-radius: 9px; background: var(--coral); color: white; font-weight: 800; cursor: pointer; }
+.modal-submit-link { display: flex; align-items: center; justify-content: center; margin-top: 20px; font-size: 12px; }
+.modal-back { margin: 0 0 18px; padding: 0; border: 0; background: transparent; color: var(--blue); font-size: 11px; font-weight: 800; cursor: pointer; }
 .modal-submit:disabled { cursor: wait; opacity: .7; }
 .modal-disclaimer { display: block; text-align: center; margin-top: 11px; color: #8a979f; }
 .booking-modal .consent { grid-template-columns: 18px 1fr; align-items: start; border: 0; padding-top: 0; }
@@ -263,6 +276,22 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
 .request-success > span { width: 62px; height: 62px; display: grid; place-items: center; margin: 0 auto; border-radius: 50%; background: var(--aqua); color: var(--blue); font-size: 27px; }
 .request-success h2 { margin: 18px 0 10px; }
 .request-success p { color: var(--muted); line-height: 1.6; margin: 0 0 22px; }
+.tour-detail-image { height: 310px; margin: 14px 0 24px; border-radius: 12px; object-fit: cover; }
+.tour-detail-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 28px; }
+.tour-detail-heading h2 { margin: 0 0 7px; max-width: 480px; }
+.tour-detail-heading p { margin: 0; color: var(--muted); font-size: 12px; }
+.tour-detail-heading > strong { flex: 0 0 auto; color: var(--coral); font: 800 24px "Manrope", sans-serif; text-align: right; }
+.tour-detail-heading > strong small { display: block; margin-top: 4px; color: var(--muted); font: 600 9px "Avenir Next", sans-serif; }
+.tour-detail-overview { margin: 22px 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.tour-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.tour-detail-grid.single { grid-template-columns: 1fr; }
+.tour-detail-grid > div { padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: #f8fbfa; }
+.tour-detail-grid h3 { margin: 0 0 13px; color: var(--navy); font: 800 12px "Manrope", sans-serif; }
+.tour-detail-grid ul { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.tour-detail-grid li { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.tour-detail-notice { display: grid; gap: 5px; margin: 18px 0 20px; padding: 16px 18px; border-radius: 9px; background: #fff3ef; }
+.tour-detail-notice strong { color: var(--navy); font-size: 11px; }
+.tour-detail-notice span { color: var(--muted); font-size: 10px; line-height: 1.55; }
 
 @media (max-width: 1020px) {
   .nav-links { gap: 18px; }
@@ -271,6 +300,7 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .tour-search { grid-template-columns: 1.2fr 1fr auto; }
   .search-field:nth-child(3) { display: none; }
   .tour-grid { grid-template-columns: repeat(2, 1fr); }
+  .seo-hub-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-grid { grid-auto-rows: 225px; }
   .route-grid { gap: 55px; }
 }
@@ -333,6 +363,8 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .section-heading h2, .route-content h2, .guide-grid h2, .faq-heading h2, .cta-inner h2 { font-size: 35px; }
   .section-heading > p { margin-top: 15px; }
   .tour-grid { grid-template-columns: 1fr; }
+  .seo-hub-grid { grid-template-columns: 1fr; }
+  .seo-hub-grid > a { min-height: 220px; }
   .card-image { height: 245px; }
   .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
   .gallery-card.gallery-wide { grid-column: span 1; }
@@ -354,4 +386,8 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .mobile-bar a { padding: 12px 15px; border-radius: 8px; background: var(--coral); font-size: 11px; font-weight: 800; }
   .booking-modal { padding: 32px 24px 24px; }
   .booking-fields { grid-template-columns: 1fr; }
+  .tour-detail-image { height: 230px; }
+  .tour-detail-heading { display: grid; gap: 15px; }
+  .tour-detail-heading > strong { text-align: left; }
+  .tour-detail-grid { grid-template-columns: 1fr; }
 }

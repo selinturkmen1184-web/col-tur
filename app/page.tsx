@@ -13,6 +13,8 @@ type Tour = {
   badge?: string;
   image: string;
   highlights: string[];
+  overview: string;
+  itinerary: string[];
 };
 
 const tours: Tour[] = [
@@ -26,6 +28,8 @@ const tours: Tour[] = [
     badge: "Şehir & Deniz",
     image: "./images/lara/antalya-duden.jpg",
     highlights: ["Otel transferi", "Öğle yemeği"],
+    overview: "Kaleiçi'nin tarihî sokaklarını, Düden Şelalesi'ni ve Antalya kıyısını aynı günde birleştiren şehir keşfi.",
+    itinerary: ["Seçili bölgelerden otel transferi", "Düden Şelalesi manzara molası", "Kaleiçi ve Eski Liman yürüyüşü", "Programa göre kıyı tekne gezisi"],
   },
   {
     id: 2,
@@ -37,6 +41,8 @@ const tours: Tour[] = [
     badge: "Turkuaz Rota",
     image: "./images/lara/adrasan-koy.jpg",
     highlights: ["3 yüzme molası", "Teknede öğle yemeği"],
+    overview: "Adrasan'dan hareket eden tekneyle Suluada ve çevresindeki berrak koylarda yüzme odaklı tam günlük deniz programı.",
+    itinerary: ["Antalya bölgesinden Adrasan'a transfer", "Suluada ve çevre koylara tekne yolculuğu", "Programa göre yüzme molaları", "Teknede öğle yemeği"],
   },
   {
     id: 3,
@@ -48,6 +54,8 @@ const tours: Tour[] = [
     badge: "Kültür Rotası",
     image: "./images/lara/pamukkale.jpg",
     highlights: ["Profesyonel rehber", "Açık büfe öğle yemeği"],
+    overview: "Pamukkale travertenleri ve Hierapolis Antik Kenti'ni Antalya çıkışlı tam günlük kültür rotasında keşfedin.",
+    itinerary: ["Sabah erken saatlerde otel transferi", "Pamukkale travertenleri için serbest zaman", "Hierapolis Antik Kenti ziyareti", "Dönüş yolunda planlı dinlenme molaları"],
   },
   {
     id: 4,
@@ -58,6 +66,8 @@ const tours: Tour[] = [
     price: 1350,
     image: "./images/coast-sunset.jpg",
     highlights: ["Gün batımı rotası", "Meyve & içecek"],
+    overview: "Kemer kıyılarında günün daha sakin saatlerinde Akdeniz manzarası ve yüzme molası sunan kısa tekne gezisi.",
+    itinerary: ["Kemer limanında tekneye biniş", "Kıyı boyunca manzara seyri", "Programa göre yüzme molası", "Gün batımı saatinde dönüş"],
   },
   {
     id: 5,
@@ -69,6 +79,8 @@ const tours: Tour[] = [
     badge: "Sahil Rotası",
     image: "./images/kas.jpg",
     highlights: ["Küçük grup", "Fotoğraf molaları"],
+    overview: "Kaş'ın taş sokaklarını ve Kaputaş'ın kıyı manzarasını fotoğraf molalarıyla birleştiren batı Antalya rotası.",
+    itinerary: ["Antalya'dan batı kıyısına hareket", "Kaputaş manzara ve fotoğraf molası", "Kaş merkezde serbest zaman", "Sahil rotasından dönüş"],
   },
   {
     id: 6,
@@ -79,6 +91,8 @@ const tours: Tour[] = [
     price: 1250,
     image: "./images/boats.jpg",
     highlights: ["Kale gezisi", "Tekne turu"],
+    overview: "Alanya Kalesi, liman çevresi ve Akdeniz koylarını şehir ile deniz deneyiminde bir araya getiren tam günlük program.",
+    itinerary: ["Antalya bölgesinden Alanya'ya transfer", "Alanya Kalesi ve şehir manzarası", "Liman çevresinde serbest zaman", "Programa göre tekne gezisi"],
   },
 ];
 
@@ -248,6 +262,34 @@ const laraRoutes = [
   },
 ];
 
+type GalleryRoute = (typeof laraRoutes)[number];
+
+const galleryRouteDetails: Record<string, { duration: string; category: string; highlights: string[] }> = {
+  "Antalya Şehir Turu": { duration: "Yaklaşık 7–9 saat", category: "Şehir & Kültür", highlights: ["Düden Şelalesi", "Kaleiçi ve Eski Liman", "Programa göre tekne gezisi", "Transfer bilgisi rezervasyonla teyit edilir"] },
+  "Adrasan & Suluada": { duration: "Yaklaşık 9–12 saat", category: "Tekne Turu", highlights: ["Adrasan Limanı'ndan kalkış", "Suluada ve çevre koylar", "Programa göre yüzme molaları", "Öğle yemeği ve transfer kapsamı teyit edilir"] },
+  "Antalya Akvaryum": { duration: "Yaklaşık 4–6 saat", category: "Aile Aktivitesi", highlights: ["Su altı tüneli", "Ailelere uygun kapalı alan", "Serbest gezi süresi", "Giriş ve transfer pakete göre netleşir"] },
+  "Perge, Aspendos & Side": { duration: "Yaklaşık 8–10 saat", category: "Kültür Turu", highlights: ["Perge Antik Kenti", "Aspendos Tiyatrosu", "Side antik liman çevresi", "Giriş ücretleri rezervasyon öncesi teyit edilir"] },
+  "Demre, Myra & Kekova": { duration: "Yaklaşık 10–12 saat", category: "Kültür & Tekne", highlights: ["Myra kaya mezarları", "Demre tarih rotası", "Programa göre Kekova tekne gezisi", "Müze girişleri ve yemek kapsamı teyit edilir"] },
+  "Kapadokya": { duration: "Konaklamalı program", category: "Kültür Rotası", highlights: ["Kapadokya vadileri", "Yer altı şehri veya açık hava müzesi", "Programa göre konaklama", "Balon uçuşu ayrı teyit edilir"] },
+  "Yunus Gösterisi": { duration: "Yaklaşık 2–4 saat", category: "Aile Aktivitesi", highlights: ["Yunus gösterisi", "Ailelere uygun program", "Seans saatine göre planlama", "Transfer ve giriş pakete göre netleşir"] },
+  "Özel Balık Avı": { duration: "Yaklaşık 4–7 saat", category: "Özel Tekne", highlights: ["Akdeniz'de balık avı rotası", "Ekipman durumu tekneye göre", "Küçük grup veya özel tekne", "Hava ve deniz koşullarına bağlı program"] },
+  "Korsan Tekne Turu": { duration: "Yaklaşık 6–8 saat", category: "Eğlence Teknesi", highlights: ["Korsan temalı tekne", "Antalya kıyısı ve Düden manzarası", "Programa göre yüzme molaları", "Müzik ve yemek kapsamı tekneden teyit edilir"] },
+  "Green Canyon": { duration: "Yaklaşık 8–10 saat", category: "Doğa & Tekne", highlights: ["Kanyon içinde tekne gezisi", "Doğa manzaraları", "Programa göre yüzme veya dinlenme molası", "Transfer ve yemek kapsamı teyit edilir"] },
+  "At Safari": { duration: "Yaklaşık 2–4 saat", category: "Doğa Aktivitesi", highlights: ["Rehberli at binme rotası", "Başlangıç seviyesi bilgilendirmesi", "Doğa parkuru", "Yaş ve kilo koşulları teyit edilir"] },
+  "Jeep Safari": { duration: "Yaklaşık 7–9 saat", category: "Safari", highlights: ["Toroslar rotası", "Köy ve manzara molaları", "Arazi aracı deneyimi", "Yemek ve transfer kapsamı teyit edilir"] },
+  "Kemer Mega Star": { duration: "Yaklaşık 7–9 saat", category: "Tekne Turu", highlights: ["Kemer kıyı rotası", "Programa göre koy molaları", "Müzikli tekne atmosferi", "Yemek ve transfer kapsamı teyit edilir"] },
+  "The Land of Legends": { duration: "Tam gün", category: "Tema Parkı", highlights: ["Su parkı ve tema alanları", "Serbest park zamanı", "Aile ve arkadaş gruplarına uygun", "Bilet ve transfer paketi teyit edilir"] },
+  "Land of Lions": { duration: "Yaklaşık 4–7 saat", category: "Yaşam Parkı", highlights: ["Vahşi yaşam gözlem alanları", "Rehberli veya serbest park programı", "Ailelere uygun aktivite", "Bilet ve transfer kapsamı teyit edilir"] },
+  "Pamukkale & Hierapolis": { duration: "Yaklaşık 12–14 saat", category: "Kültür Turu", highlights: ["Pamukkale travertenleri", "Hierapolis Antik Kenti", "Uzun yolculuklu tam gün", "Giriş ve yemek kapsamı teyit edilir"] },
+  "Yamaç Paraşütü": { duration: "Aktivite 1–3 saat", category: "Macera", highlights: ["Tandem uçuş", "Profesyonel pilot eşliği", "Hava koşuluna bağlı kalkış", "Yaş, kilo ve sağlık koşulları teyit edilir"] },
+  "Peloid Türk Hamamı": { duration: "Yaklaşık 2–3 saat", category: "Wellness", highlights: ["Hamam ve sauna alanı", "Programa göre köpük bakımı", "Dinlenme bölümü", "Masaj ve ek hizmetler pakete göre netleşir"] },
+  "Köprülü Kanyon Rafting": { duration: "Yaklaşık 9–10 saat", category: "Macera", highlights: ["Köprülü Kanyon parkuru", "Aktivite öncesi güvenlik bilgilendirmesi", "Rafting ekipmanı", "Yaş ve sağlık koşulları teyit edilir"] },
+  "Rafting & Buggy Combo": { duration: "Yaklaşık 9–11 saat", category: "Macera Kombosu", highlights: ["Rafting parkuru", "Buggy veya arazi aktivitesi", "Aynı günde iki deneyim", "Ekipman ve yemek kapsamı teyit edilir"] },
+  "Relax Tekne Turu": { duration: "Yaklaşık 4–7 saat", category: "Sakin Tekne", highlights: ["Antalya kıyısı", "Düden Şelalesi manzarası", "Daha sakin tekne atmosferi", "Yüzme ve yemek kapsamı programa göre"] },
+  "Scuba Diving": { duration: "Yaklaşık 5–8 saat", category: "Dalış", highlights: ["Eğitmen bilgilendirmesi", "Başlangıç seviyesine uygun seçenek", "Dalış ekipmanı", "Sağlık ve yaş koşulları teyit edilir"] },
+  "Türk Hamamı": { duration: "Yaklaşık 2–3 saat", category: "Wellness", highlights: ["Geleneksel hamam deneyimi", "Programa göre kese ve köpük", "Dinlenme alanı", "Masaj ve transfer pakete göre netleşir"] },
+};
+
 const faqs = [
   {
     question: "Antalya turlarına otel transferi dahil mi?",
@@ -274,7 +316,9 @@ const structuredData = {
       "@type": "TravelAgency",
       "@id": "https://coltur.com.tr/#organization",
       name: "Col Tur",
+      alternateName: "Coltur Antalya Tur",
       url: "https://coltur.com.tr/",
+      logo: "https://coltur.com.tr/og-v2.png",
       image: "https://coltur.com.tr/og-v2.png",
       email: "rezervasyon@coltur.com.tr",
       areaServed: ["Antalya", "Kemer", "Alanya", "Kaş", "Adrasan"],
@@ -285,6 +329,7 @@ const structuredData = {
       },
       priceRange: "₺₺",
       description: "Antalya çıkışlı şehir, tekne, doğa ve kültür turları için yerel rezervasyon hizmeti.",
+      knowsAbout: ["Antalya turları", "Antalya şehir turu", "Antalya tekne turları", "Antalya çıkışlı günübirlik turlar", "Suluada tekne turu"],
     },
     {
       "@type": "WebSite",
@@ -293,6 +338,24 @@ const structuredData = {
       name: "Col Tur",
       inLanguage: "tr-TR",
       publisher: { "@id": "https://coltur.com.tr/#organization" },
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://coltur.com.tr/#webpage",
+      url: "https://coltur.com.tr/",
+      name: "Antalya Turları 2026 | Günübirlik Tur & Tekne | Col Tur",
+      description: "Antalya şehir, tekne, rafting, Suluada ve günübirlik tur seçenekleri.",
+      inLanguage: "tr-TR",
+      dateModified: "2026-08-07",
+      isPartOf: { "@id": "https://coltur.com.tr/#website" },
+      about: { "@id": "https://coltur.com.tr/#organization" },
+      primaryImageOfPage: { "@type": "ImageObject", url: "https://coltur.com.tr/images/lara/antalya-duden-hero.jpg" },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://coltur.com.tr/" },
+      ],
     },
     {
       "@type": "ItemList",
@@ -331,6 +394,8 @@ export default function Home() {
   const [category, setCategory] = useState("Tümü");
   const [query, setQuery] = useState("");
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [selectedGalleryRoute, setSelectedGalleryRoute] = useState<GalleryRoute | null>(null);
   const [travellers, setTravellers] = useState(2);
   const [bookingStatus, setBookingStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
@@ -352,6 +417,7 @@ export default function Home() {
 
   const openBooking = (tour: Tour) => {
     setSelectedTour(tour);
+    setShowBookingForm(false);
     setBookingStatus("idle");
   };
 
@@ -404,7 +470,8 @@ export default function Home() {
           </a>
 
           <nav className={menuOpen ? "nav-links nav-links-open" : "nav-links"} aria-label="Ana menü">
-            <a href="#turlar" onClick={() => setMenuOpen(false)}>Turlar</a>
+            <a href="./antalya-turlari/" onClick={() => setMenuOpen(false)}>Antalya Turları</a>
+            <a href="./antalya-sehir-turu/" onClick={() => setMenuOpen(false)}>Şehir Turu</a>
             <a href="#galeri" onClick={() => setMenuOpen(false)}>Tur Galerisi</a>
             <a href="#rota" onClick={() => setMenuOpen(false)}>Antalya Rotası</a>
             <a href="#neden-biz" onClick={() => setMenuOpen(false)}>Neden Col Tur?</a>
@@ -429,9 +496,9 @@ export default function Home() {
       <section className="hero" id="anasayfa">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow">ANTALYA’YI BİZİMLE KEŞFET</span>
-            <h1>Akdeniz’in en güzel hâline <em>yakından bak.</em></h1>
-            <p>Kalabalığı değil, anı takip eden küçük gruplar; bölgeyi seven rehberler ve sonradan sürpriz çıkarmayan net fiyatlar.</p>
+            <span className="eyebrow">2026 ANTALYA TUR SEÇENEKLERİ</span>
+            <h1>Antalya turlarıyla Akdeniz’i <em>yakından keşfet.</em></h1>
+            <p>Antalya şehir turu, tekne turları, Suluada, rafting ve kültür rotalarını karşılaştır; otel transferi ile kesin fiyatı yerel Col Tur ekibiyle teyit et.</p>
             <div className="hero-trust">
               <div className="trust-seal" aria-hidden="true">✓</div>
               <div><strong>Net fiyat, açık koşullar</strong><span>Kesin rezervasyondan önce yazılı teyit</span></div>
@@ -476,7 +543,7 @@ export default function Home() {
       <section className="tours-section section" id="turlar">
         <div className="container">
           <div className="section-heading">
-            <div><span className="eyebrow">SENİN İÇİN SEÇTİK</span><h2>Antalya’nın favori deneyimleri</h2></div>
+            <div><span className="eyebrow">SENİN İÇİN SEÇTİK</span><h2>En çok tercih edilen Antalya turları</h2></div>
             <p>Kıyıdan antik kentlere, bir güne sığan ama uzun süre akılda kalan rotalar.</p>
           </div>
 
@@ -521,11 +588,11 @@ export default function Home() {
           </div>
           <div className="gallery-grid">
             {laraRoutes.map((route) => (
-              <a className={`gallery-card ${route.className}`.trim()} href="#turlar" key={route.title} aria-label={`${route.title} turunu incele`}>
+              <button className={`gallery-card ${route.className}`.trim()} type="button" onClick={() => setSelectedGalleryRoute(route)} key={route.title} aria-label={`${route.title} turunun detaylarını incele`}>
                 <img src={route.image} alt={route.alt} loading="lazy" decoding="async" width="1600" height="1067" />
                 <span className="gallery-shade" aria-hidden="true" />
-                <span className="gallery-copy"><strong>{route.title}</strong><small>{route.note}</small></span>
-              </a>
+                <span className="gallery-copy"><strong>{route.title}</strong><small>{route.note}</small><i>Tur detayları →</i></span>
+              </button>
             ))}
           </div>
         </div>
@@ -562,6 +629,21 @@ export default function Home() {
             <p><strong>Antalya şehir turları</strong>; Kaleiçi, Düden Şelalesi ve liman çevresini kısa sürede tanımak isteyenler için ideal bir başlangıçtır. Şehir merkezinde konaklayan misafirler, transferli seçeneklerle günü ulaşım planlamadan değerlendirebilir.</p>
             <p><strong>Antalya tekne turları</strong> için Kemer, Adrasan ve Suluada rotaları öne çıkar. Yüzme molaları, öğle yemeği ve kalkış noktası her programda farklı olabildiği için dahil olan hizmetleri rezervasyon öncesinde netleştiriyoruz.</p>
             <p>Pamukkale, Kaş, Kaputaş ve Alanya gibi tam günlük rotalarda yol süresi daha uzundur. Col Tur; yaş grubu, konaklama bölgesi ve tatil planınıza göre size uygun rotayı seçmenize yardımcı olur.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="seo-hub section" aria-labelledby="seo-hub-title">
+        <div className="container">
+          <div className="section-heading">
+            <div><span className="eyebrow">ROTANI DETAYLI İNCELE</span><h2 id="seo-hub-title">Antalya tur rehberleri</h2></div>
+            <p>Tur türüne göre süre, transfer, rota ve rezervasyon bilgilerini tek sayfada karşılaştır.</p>
+          </div>
+          <div className="seo-hub-grid">
+            <a href="./antalya-turlari/"><span>01</span><h3>Antalya Turları 2026</h3><p>Şehir, deniz, kültür ve macera seçeneklerinin genel rehberi.</p><strong>Tümünü incele →</strong></a>
+            <a href="./antalya-sehir-turu/"><span>02</span><h3>Antalya Şehir Turu</h3><p>Kaleiçi, Düden Şelalesi, liman ve tekne gezisi programı.</p><strong>Şehir turunu incele →</strong></a>
+            <a href="./antalya-tekne-turlari/"><span>03</span><h3>Antalya Tekne Turları</h3><p>Suluada, Adrasan, Kemer ve Akdeniz koyları karşılaştırması.</p><strong>Tekne turlarını incele →</strong></a>
+            <a href="./antalya-cikisli-gunubirlik-turlar/"><span>04</span><h3>Antalya Çıkışlı Günübirlik Turlar</h3><p>Rafting, Pamukkale, Demre ve çevre rotaları için planlama rehberi.</p><strong>Günübirlik turları incele →</strong></a>
           </div>
         </div>
       </section>
@@ -616,7 +698,7 @@ export default function Home() {
       <footer>
         <div className="container footer-grid">
           <div className="footer-brand"><a className="brand brand-light" href="#anasayfa"><span className="brand-mark"><span>c</span></span><span className="brand-name">col<span>tur</span></span></a><p>Antalya’nın denizini, tarihini ve hikâyelerini yerel gibi keşfet.</p></div>
-          <div><strong>Turlar</strong><a href="#turlar">Şehir Turları</a><a href="#turlar">Tekne Turları</a><a href="#turlar">Kültür Rotaları</a></div>
+          <div><strong>Turlar</strong><a href="./antalya-turlari/">Antalya Turları</a><a href="./antalya-sehir-turu/">Antalya Şehir Turu</a><a href="./antalya-tekne-turlari/">Antalya Tekne Turları</a><a href="./antalya-cikisli-gunubirlik-turlar/">Günübirlik Turlar</a></div>
           <div><strong>Col Tur</strong><a href="#neden-biz">Hakkımızda</a><a href="mailto:rezervasyon@coltur.com.tr">İletişim</a><a href="#sss">Sık Sorulanlar</a></div>
           <div><strong>Bize ulaş</strong><a href="mailto:rezervasyon@coltur.com.tr">rezervasyon@coltur.com.tr</a><span>Antalya, Türkiye</span></div>
         </div>
@@ -628,12 +710,29 @@ export default function Home() {
       {selectedTour && (
         <div className="modal-backdrop">
           <button className="modal-backdrop-close" type="button" aria-label="Rezervasyon penceresini kapat" onClick={() => setSelectedTour(null)} />
-          <section className="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+          <section className={!showBookingForm && bookingStatus !== "sent" ? "booking-modal tour-detail-modal" : "booking-modal"} role="dialog" aria-modal="true" aria-labelledby="booking-title">
             <button className="modal-close" type="button" aria-label="Rezervasyon penceresini kapat" onClick={() => setSelectedTour(null)}>×</button>
             {bookingStatus === "sent" ? (
               <div className="request-success"><span>✓</span><h2>Talebin bize ulaştı.</h2><p>Col Tur ekibi müsaitlik ve kesin fiyat bilgisini verdiğin iletişim adresine gönderecek.</p><button type="button" onClick={() => setSelectedTour(null)}>Turlara dön</button></div>
+            ) : !showBookingForm ? (
+              <div className="tour-detail-panel">
+                <span className="eyebrow">TUR DETAYLARI</span>
+                <img className="tour-detail-image" src={selectedTour.image} alt={selectedTour.title} width="1400" height="933" />
+                <div className="tour-detail-heading">
+                  <div><h2 id="booking-title">{selectedTour.title}</h2><p>{selectedTour.location} · {selectedTour.duration} · {selectedTour.category}</p></div>
+                  <strong>₺{selectedTour.price.toLocaleString("tr-TR")}<small> / kişi başı başlangıç</small></strong>
+                </div>
+                <p className="tour-detail-overview">{selectedTour.overview}</p>
+                <div className="tour-detail-grid">
+                  <div><h3>Programda öne çıkanlar</h3><ul>{selectedTour.itinerary.map((item) => <li key={item}>✓ {item}</li>)}</ul></div>
+                  <div><h3>Öne çıkan hizmetler</h3><ul>{selectedTour.highlights.map((item) => <li key={item}>✓ {item}</li>)}</ul></div>
+                </div>
+                <div className="tour-detail-notice"><strong>Kesin program ve fiyat</strong><span>Tur tarihi, otel bölgesi ve kişi sayısına göre müsaitlik, transfer ve dahil hizmetler yazılı olarak teyit edilir.</span></div>
+                <button className="modal-submit" type="button" onClick={() => setShowBookingForm(true)}>Rezervasyon talebine geç</button>
+              </div>
             ) : (
               <form onSubmit={submitBooking}>
+                <button className="modal-back" type="button" onClick={() => setShowBookingForm(false)}>← Tur detaylarına dön</button>
                 <span className="eyebrow">REZERVASYON TALEBİ</span>
                 <h2 id="booking-title">{selectedTour.title}</h2>
                 <p>{selectedTour.location} · {selectedTour.duration}</p>
@@ -653,6 +752,24 @@ export default function Home() {
                 <small className="modal-disclaimer">Talep göndermek ödeme oluşturmaz. Müsaitlik ve kesin fiyat ayrıca teyit edilir.</small>
               </form>
             )}
+          </section>
+        </div>
+      )}
+
+      {selectedGalleryRoute && (
+        <div className="modal-backdrop">
+          <button className="modal-backdrop-close" type="button" aria-label="Tur detaylarını kapat" onClick={() => setSelectedGalleryRoute(null)} />
+          <section className="booking-modal gallery-detail-modal" role="dialog" aria-modal="true" aria-labelledby="gallery-detail-title">
+            <button className="modal-close" type="button" aria-label="Tur detaylarını kapat" onClick={() => setSelectedGalleryRoute(null)}>×</button>
+            <div className="tour-detail-panel">
+              <span className="eyebrow">LARA ÇIKIŞLI TUR DETAYI</span>
+              <img className="tour-detail-image" src={selectedGalleryRoute.image} alt={selectedGalleryRoute.alt} width="1600" height="1067" />
+              <div className="tour-detail-heading"><div><h2 id="gallery-detail-title">{selectedGalleryRoute.title}</h2><p>{galleryRouteDetails[selectedGalleryRoute.title].duration} · {galleryRouteDetails[selectedGalleryRoute.title].category}</p></div></div>
+              <p className="tour-detail-overview">{selectedGalleryRoute.note}. Güncel rota; tur tarihi, hava koşulu ve operasyon planına göre kesinleşir.</p>
+              <div className="tour-detail-grid single"><div><h3>Programda öne çıkanlar</h3><ul>{galleryRouteDetails[selectedGalleryRoute.title].highlights.map((item) => <li key={item}>✓ {item}</li>)}</ul></div></div>
+              <div className="tour-detail-notice"><strong>Rezervasyondan önce</strong><span>Otel bölgenizi, tarihi, kişi sayısını ve varsa çocuk yaşını iletin; müsaitlik, kesin fiyat ve dahil hizmetler size yazılı bildirilsin.</span></div>
+              <a className="modal-submit modal-submit-link" href={`mailto:rezervasyon@coltur.com.tr?subject=${encodeURIComponent(selectedGalleryRoute.title + " turu")}&body=${encodeURIComponent("Merhaba, " + selectedGalleryRoute.title + " için tarih, kişi sayısı, transfer ve fiyat bilgisi almak istiyorum.")}`}>Bu tur için bilgi iste</a>
+            </div>
           </section>
         </div>
       )}

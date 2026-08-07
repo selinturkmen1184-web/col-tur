@@ -3,4 +3,4 @@ Allow: /
 Disallow: /booking.php
 
 Sitemap: https://coltur.com.tr/sitemap.xml
-
+Sitemap: https://coltur.com.tr/image-sitemap.xml
