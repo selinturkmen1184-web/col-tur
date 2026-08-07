@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 type Tour = {
   id: number;
@@ -400,6 +400,7 @@ const structuredData = {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [tourList, setTourList] = useState<Tour[]>(tours);
   const [category, setCategory] = useState("Tümü");
   const [query, setQuery] = useState("");
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
@@ -408,16 +409,55 @@ export default function Home() {
   const [travellers, setTravellers] = useState(2);
   const [bookingStatus, setBookingStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
+  useEffect(() => {
+    let active = true;
+
+    fetch("/data/tours.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("Tur verisi alınamadı");
+        return response.json();
+      })
+      .then((data: unknown) => {
+        if (!active || !Array.isArray(data)) return;
+
+        const validTours = data.filter((tour): tour is Tour => {
+          if (!tour || typeof tour !== "object") return false;
+          const candidate = tour as Partial<Tour>;
+          return (
+            typeof candidate.id === "number" &&
+            typeof candidate.title === "string" &&
+            typeof candidate.location === "string" &&
+            typeof candidate.category === "string" &&
+            typeof candidate.duration === "string" &&
+            typeof candidate.price === "number" &&
+            typeof candidate.image === "string" &&
+            Array.isArray(candidate.highlights) &&
+            typeof candidate.overview === "string" &&
+            Array.isArray(candidate.itinerary)
+          );
+        });
+
+        if (validTours.length > 0) setTourList(validTours);
+      })
+      .catch(() => {
+        // Sunucudaki yönetilebilir veri okunamazsa yerleşik tur listesi kullanılır.
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
   const filteredTours = useMemo(() => {
     const term = query.trim().toLocaleLowerCase("tr");
-    return tours.filter((tour) => {
+    return tourList.filter((tour) => {
       const matchesCategory = category === "Tümü" || tour.category === category;
       const matchesSearch =
         !term ||
         `${tour.title} ${tour.location} ${tour.category}`.toLocaleLowerCase("tr").includes(term);
       return matchesCategory && matchesSearch;
     });
-  }, [category, query]);
+  }, [category, query, tourList]);
 
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

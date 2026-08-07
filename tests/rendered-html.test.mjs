@@ -61,3 +61,25 @@ test("ships distinct Antalya SEO landing pages", async () => {
     assert.match(page, /"@type":"BreadcrumbList"/);
   }
 });
+
+test("ships the protected management panel and durable reservation storage", async () => {
+  const [admin, bootstrap, booking, tours, robots] = await Promise.all([
+    readFile(new URL("dist/yonetim/index.php", root), "utf8"),
+    readFile(new URL("dist/yonetim/bootstrap.php", root), "utf8"),
+    readFile(new URL("dist/booking.php", root), "utf8"),
+    readFile(new URL("dist/data/tours.json", root), "utf8"),
+    readFile(new URL("dist/robots.txt", root), "utf8"),
+    access(new URL("dist/yonetim/admin.css", root)),
+    access(new URL("dist/yonetim/admin.js", root)),
+  ]);
+
+  assert.match(admin, /password_verify/);
+  assert.match(admin, /verify_csrf/);
+  assert.match(admin, /Rezervasyon talepleri/);
+  assert.match(admin, /Turlar ve fiyatlar/);
+  assert.match(bootstrap, /CREATE TABLE IF NOT EXISTS reservations/);
+  assert.match(bootstrap, /dirname\(__DIR__, 2\).*\.coltur-admin\.php/);
+  assert.match(booking, /coltur_store_reservation/);
+  assert.equal(JSON.parse(tours).length, 6);
+  assert.match(robots, /Disallow: \/yonetim\//);
+});

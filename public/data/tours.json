@@ -1,0 +1,78 @@
+[
+  {
+    "id": 1,
+    "title": "Kaleiçi, Düden Şelalesi & Tekne Turu",
+    "location": "Antalya Merkez",
+    "category": "Şehir Turları",
+    "duration": "Tam gün",
+    "price": 990,
+    "badge": "Şehir & Deniz",
+    "image": "./images/lara/antalya-duden.jpg",
+    "highlights": ["Otel transferi", "Öğle yemeği"],
+    "overview": "Kaleiçi'nin tarihî sokaklarını, Düden Şelalesi'ni ve Antalya kıyısını aynı günde birleştiren şehir keşfi.",
+    "itinerary": ["Seçili bölgelerden otel transferi", "Düden Şelalesi manzara molası", "Kaleiçi ve Eski Liman yürüyüşü", "Programa göre kıyı tekne gezisi"]
+  },
+  {
+    "id": 2,
+    "title": "Suluada'nın Turkuaz Koyları",
+    "location": "Adrasan",
+    "category": "Tekne Turları",
+    "duration": "7 saat",
+    "price": 1150,
+    "badge": "Turkuaz Rota",
+    "image": "./images/lara/adrasan-koy.jpg",
+    "highlights": ["3 yüzme molası", "Teknede öğle yemeği"],
+    "overview": "Adrasan'dan hareket eden tekneyle Suluada ve çevresindeki berrak koylarda yüzme odaklı tam günlük deniz programı.",
+    "itinerary": ["Antalya bölgesinden Adrasan'a transfer", "Suluada ve çevre koylara tekne yolculuğu", "Programa göre yüzme molaları", "Teknede öğle yemeği"]
+  },
+  {
+    "id": 3,
+    "title": "Pamukkale & Hierapolis Keşfi",
+    "location": "Antalya çıkışlı",
+    "category": "Kültür",
+    "duration": "Tam gün",
+    "price": 1850,
+    "badge": "Kültür Rotası",
+    "image": "./images/lara/pamukkale.jpg",
+    "highlights": ["Profesyonel rehber", "Açık büfe öğle yemeği"],
+    "overview": "Pamukkale travertenleri ve Hierapolis Antik Kenti'ni Antalya çıkışlı tam günlük kültür rotasında keşfedin.",
+    "itinerary": ["Sabah erken saatlerde otel transferi", "Pamukkale travertenleri için serbest zaman", "Hierapolis Antik Kenti ziyareti", "Dönüş yolunda planlı dinlenme molaları"]
+  },
+  {
+    "id": 4,
+    "title": "Gün Batımında Akdeniz Tekne Turu",
+    "location": "Kemer",
+    "category": "Tekne Turları",
+    "duration": "4 saat",
+    "price": 1350,
+    "image": "./images/coast-sunset.jpg",
+    "highlights": ["Gün batımı rotası", "Meyve & içecek"],
+    "overview": "Kemer kıyılarında günün daha sakin saatlerinde Akdeniz manzarası ve yüzme molası sunan kısa tekne gezisi.",
+    "itinerary": ["Kemer limanında tekneye biniş", "Kıyı boyunca manzara seyri", "Programa göre yüzme molası", "Gün batımı saatinde dönüş"]
+  },
+  {
+    "id": 5,
+    "title": "Kaş & Kaputaş Sahil Rotası",
+    "location": "Kaş",
+    "category": "Doğa",
+    "duration": "Tam gün",
+    "price": 1490,
+    "badge": "Sahil Rotası",
+    "image": "./images/kas.jpg",
+    "highlights": ["Küçük grup", "Fotoğraf molaları"],
+    "overview": "Kaş'ın taş sokaklarını ve Kaputaş'ın kıyı manzarasını fotoğraf molalarıyla birleştiren batı Antalya rotası.",
+    "itinerary": ["Antalya'dan batı kıyısına hareket", "Kaputaş manzara ve fotoğraf molası", "Kaş merkezde serbest zaman", "Sahil rotasından dönüş"]
+  },
+  {
+    "id": 6,
+    "title": "Alanya Kalesi & Akdeniz Koyları",
+    "location": "Alanya",
+    "category": "Şehir Turları",
+    "duration": "8 saat",
+    "price": 1250,
+    "image": "./images/boats.jpg",
+    "highlights": ["Kale gezisi", "Tekne turu"],
+    "overview": "Alanya Kalesi, liman çevresi ve Akdeniz koylarını şehir ile deniz deneyiminde bir araya getiren tam günlük program.",
+    "itinerary": ["Antalya bölgesinden Alanya'ya transfer", "Alanya Kalesi ve şehir manzarası", "Liman çevresinde serbest zaman", "Programa göre tekne gezisi"]
+  }
+]

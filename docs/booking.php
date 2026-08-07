@@ -4,6 +4,8 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 
+require_once __DIR__ . '/yonetim/bootstrap.php';
+
 function respond(int $status, array $payload): never
 {
     http_response_code($status);
@@ -86,9 +88,32 @@ $headers = [
     'Content-Type: text/plain; charset=UTF-8',
 ];
 
+$reservationId = 0;
+try {
+    $reservationId = coltur_store_reservation([
+        'tour' => $tour,
+        'date' => $date,
+        'travellers' => $travellers,
+        'name' => $name,
+        'email' => $email,
+        'phone' => $phone,
+        'note' => $note,
+    ]);
+} catch (Throwable $error) {
+    error_log('Col Tur rezervasyon kaydı oluşturulamadı: ' . $error->getMessage());
+}
+
 $sent = mail('rezervasyon@coltur.com.tr', $encodedSubject, $message, implode("\r\n", $headers));
-if (!$sent) {
+if ($sent && $reservationId > 0) {
+    try {
+        coltur_mark_reservation_mailed($reservationId);
+    } catch (Throwable $error) {
+        error_log('Col Tur e-posta durumu güncellenemedi: ' . $error->getMessage());
+    }
+}
+
+if (!$sent && $reservationId < 1) {
     respond(503, ['ok' => false, 'message' => 'Talep şu anda gönderilemedi.']);
 }
 
-respond(200, ['ok' => true]);
+respond(200, ['ok' => true, 'reference' => $reservationId > 0 ? $reservationId : null]);

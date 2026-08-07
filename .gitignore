@@ -38,6 +38,9 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+/coltur-private/
+/.coltur-admin.php
+/tsconfig.tsbuildinfo
 
 # unused initializer duplicates kept locally
 /app/* 2.*
