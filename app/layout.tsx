@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: "Antalya turları 2026: şehir, tekne, rafting, Suluada ve günübirlik tur seçeneklerini karşılaştırın. Transfer ve kesin fiyatı Col Tur ile teyit edin.",
   alternates: { canonical: "/", languages: { "tr-TR": "/", "x-default": "/" } },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/coltur-logo.jpg",
+    apple: "/coltur-logo.jpg",
+  },
   openGraph: {
     type: "website",
     locale: "tr_TR",

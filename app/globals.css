@@ -30,6 +30,7 @@ img { display: block; width: 100%; }
 .site-header { position: relative; z-index: 20; border-bottom: 1px solid rgba(12,41,64,.09); background: rgba(255,255,255,.96); }
 .nav-wrap { min-height: 78px; display: flex; align-items: center; gap: 44px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.brand-logo { width: 48px; height: 48px; flex: 0 0 48px; object-fit: cover; border: 1px solid rgba(11,41,65,.12); border-radius: 50%; box-shadow: 0 6px 18px rgba(11,41,65,.13); }
 .brand-mark { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 50% 50% 44% 56%; background: var(--coral); color: white; transform: rotate(-8deg); position: relative; }
 .brand-mark::after { content: ""; position: absolute; width: 8px; height: 8px; border: 2px solid white; border-left-color: transparent; border-bottom-color: transparent; border-radius: 50%; top: 6px; right: 7px; }
 .brand-mark span { font-family: Georgia, serif; font-size: 27px; font-style: italic; line-height: 1; transform: rotate(8deg); }
@@ -346,6 +347,7 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .container { width: min(100% - 32px, 1180px); }
   .section { padding: 78px 0; }
   .brand-mark { width: 35px; height: 35px; }
+  .brand-logo { width: 40px; height: 40px; flex-basis: 40px; }
   .brand-name { font-size: 21px; }
   .hero-copy { padding-top: 55px; }
   .hero-copy h1 { font-size: 48px; }

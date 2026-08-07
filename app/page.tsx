@@ -318,7 +318,7 @@ const structuredData = {
       name: "Col Tur",
       alternateName: "Coltur Antalya Tur",
       url: "https://coltur.com.tr/",
-      logo: "https://coltur.com.tr/og-v2.png",
+      logo: "https://coltur.com.tr/coltur-logo.jpg",
       image: "https://coltur.com.tr/og-v2.png",
       email: "rezervasyon@coltur.com.tr",
       areaServed: ["Antalya", "Kemer", "Alanya", "Kaş", "Adrasan"],
@@ -465,7 +465,7 @@ export default function Home() {
       <header className="site-header">
         <div className="container nav-wrap">
           <a className="brand" href="#anasayfa" aria-label="Col Tur ana sayfa">
-            <span className="brand-mark" aria-hidden="true"><span>c</span></span>
+            <img className="brand-logo" src="./coltur-logo.jpg" alt="" width="48" height="48" />
             <span className="brand-name">col<span>tur</span></span>
           </a>
 
@@ -697,7 +697,7 @@ export default function Home() {
 
       <footer>
         <div className="container footer-grid">
-          <div className="footer-brand"><a className="brand brand-light" href="#anasayfa"><span className="brand-mark"><span>c</span></span><span className="brand-name">col<span>tur</span></span></a><p>Antalya’nın denizini, tarihini ve hikâyelerini yerel gibi keşfet.</p></div>
+          <div className="footer-brand"><a className="brand brand-light" href="#anasayfa" aria-label="Col Tur ana sayfa"><img className="brand-logo" src="./coltur-logo.jpg" alt="" width="48" height="48" /><span className="brand-name">col<span>tur</span></span></a><p>Antalya’nın denizini, tarihini ve hikâyelerini yerel gibi keşfet.</p></div>
           <div><strong>Turlar</strong><a href="./antalya-turlari/">Antalya Turları</a><a href="./antalya-sehir-turu/">Antalya Şehir Turu</a><a href="./antalya-tekne-turlari/">Antalya Tekne Turları</a><a href="./antalya-cikisli-gunubirlik-turlar/">Günübirlik Turlar</a></div>
           <div><strong>Col Tur</strong><a href="#neden-biz">Hakkımızda</a><a href="mailto:rezervasyon@coltur.com.tr">İletişim</a><a href="#sss">Sık Sorulanlar</a></div>
           <div><strong>Bize ulaş</strong><a href="mailto:rezervasyon@coltur.com.tr">rezervasyon@coltur.com.tr</a><span>Antalya, Türkiye</span></div>

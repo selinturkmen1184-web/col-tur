@@ -14,6 +14,7 @@ test("renders SEO content into production HTML", async () => {
   assert.match(html, /"@type":"FAQPage"/);
   assert.match(html, /"@type":"WebPage"/);
   assert.match(html, /Antalya turlarıyla Akdeniz’i/);
+  assert.match(html, /coltur-logo\.jpg/);
   assert.match(html, /id="root"><link rel="preload"/);
   assert.doesNotMatch(html, /github\.io|Bu bir arayüz demosudur|codex-preview/);
 });
@@ -27,6 +28,7 @@ test("ships search, legal and booking support files", async () => {
     access(new URL("dist/gizlilik.html", root)),
     access(new URL("dist/kullanim-kosullari.html", root)),
     access(new URL("dist/og-v2.png", root)),
+    access(new URL("dist/coltur-logo.jpg", root)),
   ]);
 
   assert.match(robots, /Sitemap: https:\/\/coltur\.com\.tr\/sitemap\.xml/);
