@@ -6,7 +6,7 @@ header('X-Content-Type-Options: nosniff');
 
 require_once __DIR__ . '/yonetim/bootstrap.php';
 
-function respond(int $status, array $payload): never
+function respond(int $status, array $payload)
 {
     http_response_code($status);
     echo json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -32,7 +32,7 @@ if (!is_array($data)) {
     respond(400, ['ok' => false, 'message' => 'Geçersiz form verisi.']);
 }
 
-$clean = static function (mixed $value, int $maxLength = 300): string {
+$clean = static function ($value, int $maxLength = 300): string {
     $text = trim((string) $value);
     $text = str_replace(["\r", "\n", "\0"], ' ', $text);
     return mb_substr($text, 0, $maxLength, 'UTF-8');

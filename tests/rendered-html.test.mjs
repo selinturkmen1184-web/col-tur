@@ -77,6 +77,11 @@ test("ships the protected management panel and durable reservation storage", asy
   assert.match(admin, /verify_csrf/);
   assert.match(admin, /Rezervasyon talepleri/);
   assert.match(admin, /Turlar ve fiyatlar/);
+  assert.doesNotMatch(admin, /\bmixed\s+\$/);
+  assert.doesNotMatch(admin, /:\s*never\b/);
+  assert.doesNotMatch(admin, /catch\s*\(\s*Throwable\s*\)/);
+  assert.doesNotMatch(booking, /\bmixed\s+\$/);
+  assert.doesNotMatch(booking, /:\s*never\b/);
   assert.match(bootstrap, /CREATE TABLE IF NOT EXISTS reservations/);
   assert.match(bootstrap, /dirname\(__DIR__, 2\).*\.coltur-admin\.php/);
   assert.match(booking, /coltur_store_reservation/);

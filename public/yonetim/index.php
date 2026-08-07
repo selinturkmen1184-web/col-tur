@@ -21,12 +21,12 @@ session_set_cookie_params([
 ]);
 session_start();
 
-function h(mixed $value): string
+function h($value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-function clean_text(mixed $value, int $max = 500): string
+function clean_text($value, int $max = 500): string
 {
     $text = trim((string) $value);
     $text = str_replace(["\0", "\r"], '', $text);
@@ -36,7 +36,29 @@ function clean_text(mixed $value, int $max = 500): string
 function csrf_token(): string
 {
     if (empty($_SESSION['csrf'])) {
-        $_SESSION['csrf'] = bin2hex(random_bytes(32));
+        $bytes = false;
+
+        if (function_exists('random_bytes')) {
+            try {
+                $bytes = random_bytes(32);
+            } catch (Throwable $error) {
+                $bytes = false;
+            }
+        }
+
+        if (!is_string($bytes) && function_exists('openssl_random_pseudo_bytes')) {
+            try {
+                $bytes = openssl_random_pseudo_bytes(32);
+            } catch (Throwable $error) {
+                $bytes = false;
+            }
+        }
+
+        if (!is_string($bytes)) {
+            $bytes = hash('sha256', session_id() . microtime(true) . uniqid('', true), true);
+        }
+
+        $_SESSION['csrf'] = bin2hex($bytes);
     }
     return (string) $_SESSION['csrf'];
 }
@@ -50,7 +72,7 @@ function verify_csrf(): void
     }
 }
 
-function redirect_panel(string $section = 'rezervasyonlar'): never
+function redirect_panel(string $section = 'rezervasyonlar')
 {
     header('Location: ./?section=' . rawurlencode($section));
     exit;
