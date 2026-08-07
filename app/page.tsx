@@ -315,8 +315,11 @@ const structuredData = {
     {
       "@type": "TravelAgency",
       "@id": "https://coltur.com.tr/#organization",
-      name: "Col Tur",
-      alternateName: "Coltur Antalya Tur",
+      name: "Çöl Tur",
+      alternateName: ["Col Tur", "Coltur Antalya Tur"],
+      legalName: "Çöl-Tur Turizm Ticaret ve Nakliyat A.Ş.",
+      foundingDate: "1995",
+      slogan: "Her yolculuk yeni bir keşif, her gezi güzel bir hatıradır.",
       url: "https://coltur.com.tr/",
       logo: "https://coltur.com.tr/coltur-logo.jpg",
       image: "https://coltur.com.tr/og-v2.png",
@@ -324,8 +327,14 @@ const structuredData = {
       areaServed: ["Antalya", "Kemer", "Alanya", "Kaş", "Adrasan"],
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Antalya",
+        addressLocality: "Konaklı",
+        addressRegion: "Antalya",
         addressCountry: "TR",
+      },
+      identifier: {
+        "@type": "PropertyValue",
+        name: "T.C. Kültür ve Turizm Bakanlığı A Grubu Seyahat Acentası Belgesi",
+        value: "2783",
       },
       priceRange: "₺₺",
       description: "Antalya çıkışlı şehir, tekne, doğa ve kültür turları için yerel rezervasyon hizmeti.",
@@ -474,7 +483,7 @@ export default function Home() {
             <a href="./antalya-sehir-turu/" onClick={() => setMenuOpen(false)}>Şehir Turu</a>
             <a href="#galeri" onClick={() => setMenuOpen(false)}>Tur Galerisi</a>
             <a href="#rota" onClick={() => setMenuOpen(false)}>Antalya Rotası</a>
-            <a href="#neden-biz" onClick={() => setMenuOpen(false)}>Neden Col Tur?</a>
+            <a href="#hakkimizda" onClick={() => setMenuOpen(false)}>Hakkımızda</a>
             <a href="#sss" onClick={() => setMenuOpen(false)}>Sık Sorulanlar</a>
           </nav>
 
@@ -648,6 +657,45 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="about-section section" id="hakkimizda" aria-labelledby="about-title">
+        <div className="container about-grid">
+          <div className="about-heading">
+            <span className="eyebrow">1995’TEN BERİ ANTALYA’DA</span>
+            <h2 id="about-title">Çöl Tur hakkında</h2>
+            <p>Konaklı–Alanya merkezli, Antalya ve çevresinde günübirlik geziler ve seyahat organizasyonları gerçekleştiren yerel turizm kuruluşu.</p>
+            <div className="about-license" aria-label="Seyahat acentası belge bilgisi">
+              <span>2783</span>
+              <div><strong>A Grubu Seyahat Acentası</strong><small>T.C. Kültür ve Turizm Bakanlığına bağlı belge</small></div>
+            </div>
+          </div>
+
+          <div className="about-story">
+            <p className="about-lede">1995 yılında kurulan <strong>Çöl Tur Turizm Seyahat Acentası</strong>, Antalya ve çevresinde günübirlik geziler ve seyahat organizasyonları gerçekleştiren, Konaklı–Alanya merkezli bir turizm kuruluşudur.</p>
+            <p>Çöl-Tur Turizm Ticaret ve Nakliyat A.Ş. bünyesinde faaliyet gösteren acentamız, T.C. Kültür ve Turizm Bakanlığına bağlı 2783 numaralı A Grubu seyahat acentası belgesine sahiptir.</p>
+            <p>Kurulduğumuz günden bu yana Antalya’nın doğal güzelliklerini, tarihî mirasını ve eşsiz kıyılarını misafirlerimizle buluşturuyoruz. Doğa gezilerinden tarih ve kültür rotalarına, deniz aktivitelerinden eğlenceli günlük programlara kadar farklı seçenekler sunuyoruz.</p>
+            <p>Bölgeyi yakından tanıyan ekibimizle her geziyi dikkatle planlıyor; misafirlerimize doğru bilgilendirme, düzenli organizasyon ve keyifli bir seyahat deneyimi sunmayı amaçlıyoruz.</p>
+            <p>Hizmet anlayışımızı güven, misafir memnuniyeti, kaliteli hizmet ve Antalya’ya duyduğumuz bağlılık üzerine kuruyoruz.</p>
+
+            <div className="about-values-grid">
+              <article>
+                <span>01</span>
+                <h3>Misyonumuz</h3>
+                <p>Antalya ve çevresinin doğal, tarihî ve kültürel değerlerini özenle hazırlanan günübirlik gezi programlarıyla tanıtmak; güvenli, düzenli, keyifli ve ulaşılabilir seyahat deneyimleri sunmaktır.</p>
+                <p>Her misafirimizin ihtiyaçlarını önemseyerek doğru bilgilendirme, kaliteli hizmet ve özenli organizasyon anlayışıyla tatillerine değer katmayı hedefliyoruz.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Vizyonumuz</h3>
+                <p>1995 yılından gelen deneyimimizle Antalya’nın günübirlik gezi ve seyahat organizasyonları alanında güven duyulan, hizmet kalitesiyle tercih edilen öncü yerel turizm markalarından biri olmaktır.</p>
+                <p>Yerel değerleri koruyan, teknolojiyi etkin kullanan, sürekli gelişen ve sürdürülebilir turizmi destekleyen hizmet anlayışımızla Çöl Tur markasını daha geniş kitlelerle buluşturmayı amaçlıyoruz.</p>
+              </article>
+            </div>
+
+            <blockquote>Çöl Tur ile her yolculuk yeni bir keşif, her gezi güzel bir hatıradır.</blockquote>
+          </div>
+        </div>
+      </section>
+
       <section className="why-section section" id="neden-biz">
         <div className="container">
           <div className="section-heading centered">
@@ -699,7 +747,7 @@ export default function Home() {
         <div className="container footer-grid">
           <div className="footer-brand"><a className="brand brand-light" href="#anasayfa" aria-label="Col Tur ana sayfa"><img className="brand-logo" src="./coltur-logo.jpg" alt="" width="48" height="48" /><span className="brand-name">col<span>tur</span></span></a><p>Antalya’nın denizini, tarihini ve hikâyelerini yerel gibi keşfet.</p></div>
           <div><strong>Turlar</strong><a href="./antalya-turlari/">Antalya Turları</a><a href="./antalya-sehir-turu/">Antalya Şehir Turu</a><a href="./antalya-tekne-turlari/">Antalya Tekne Turları</a><a href="./antalya-cikisli-gunubirlik-turlar/">Günübirlik Turlar</a></div>
-          <div><strong>Col Tur</strong><a href="#neden-biz">Hakkımızda</a><a href="mailto:rezervasyon@coltur.com.tr">İletişim</a><a href="#sss">Sık Sorulanlar</a></div>
+          <div><strong>Col Tur</strong><a href="#hakkimizda">Hakkımızda</a><a href="mailto:rezervasyon@coltur.com.tr">İletişim</a><a href="#sss">Sık Sorulanlar</a></div>
           <div><strong>Bize ulaş</strong><a href="mailto:rezervasyon@coltur.com.tr">rezervasyon@coltur.com.tr</a><span>Antalya, Türkiye</span></div>
         </div>
         <div className="container footer-bottom"><span>© 2026 Col Tur. Tüm hakları saklıdır.</span><div><a href="/gizlilik.html">Gizlilik</a><a href="/kullanim-kosullari.html">Kullanım Koşulları</a></div></div>

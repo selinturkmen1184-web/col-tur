@@ -183,6 +183,29 @@ img { display: block; width: 100%; }
 .seo-hub-grid p { margin: 0 0 24px; color: var(--muted); font-size: 13px; line-height: 1.7; }
 .seo-hub-grid strong { margin-top: auto; color: var(--blue); font-size: 11px; }
 
+.about-section { position: relative; overflow: hidden; background: #fff; }
+.about-section::before { content: "1995"; position: absolute; right: -30px; top: -70px; color: rgba(11,41,65,.025); font: 800 250px "Manrope", sans-serif; letter-spacing: -.08em; }
+.about-grid { position: relative; z-index: 1; display: grid; grid-template-columns: .76fr 1.24fr; gap: 84px; align-items: start; }
+.about-heading { position: sticky; top: 30px; }
+.about-heading h2 { max-width: 520px; margin: 13px 0 22px; color: var(--navy); font: 800 clamp(38px, 4vw, 55px)/1.05 "Avenir Next", "Segoe UI", sans-serif; letter-spacing: -.055em; }
+.about-heading > p { max-width: 470px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
+.about-license { display: flex; align-items: center; gap: 18px; margin-top: 35px; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: #f3f8f7; }
+.about-license > span { width: 68px; height: 68px; flex: 0 0 68px; display: grid; place-items: center; border-radius: 50%; background: var(--navy); color: white; font: 800 17px "Manrope", sans-serif; }
+.about-license > div { display: grid; gap: 5px; }
+.about-license strong { color: var(--navy); font-size: 13px; }
+.about-license small { color: var(--muted); font-size: 10px; line-height: 1.5; }
+.about-story { display: grid; gap: 19px; }
+.about-story > p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.85; }
+.about-story > .about-lede { color: var(--navy); font: 400 20px/1.7 Georgia, serif; }
+.about-story strong { color: var(--navy); }
+.about-values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 18px; }
+.about-values-grid article { position: relative; padding: 31px; border: 1px solid var(--line); border-radius: 12px; background: var(--sand); }
+.about-values-grid article > span { position: absolute; top: 22px; right: 23px; color: var(--coral); font: 800 10px "Manrope", sans-serif; letter-spacing: .12em; }
+.about-values-grid h3 { margin: 0 0 16px; color: var(--navy); font: 800 22px "Manrope", sans-serif; letter-spacing: -.035em; }
+.about-values-grid p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.about-values-grid p + p { margin-top: 12px; }
+.about-story blockquote { margin: 10px 0 0; padding: 25px 30px; border-left: 4px solid var(--coral); background: var(--navy); color: white; font: italic 21px/1.55 Georgia, serif; }
+
 .why-section { background: var(--navy); color: white; position: relative; overflow: hidden; }
 .why-section::after { content: "COL"; position: absolute; right: -30px; bottom: -75px; color: rgba(255,255,255,.025); font: 800 260px "Manrope", sans-serif; letter-spacing: -.08em; }
 .section-heading.centered { display: block; text-align: center; max-width: 680px; margin: 0 auto 58px; }
@@ -333,7 +356,8 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-card.gallery-tall { grid-row: span 1; }
   .route-image { width: min(530px, 90%); height: 580px; margin: 0 auto; }
-  .guide-grid, .faq-grid { grid-template-columns: 1fr; gap: 48px; }
+  .guide-grid, .faq-grid, .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-heading { position: static; }
   .faq-heading { position: static; }
   .why-grid { grid-template-columns: 1fr; }
   .why-grid article { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.13); }
@@ -367,6 +391,9 @@ footer { background: #071d2d; color: white; padding: 72px 0 22px; }
   .tour-grid { grid-template-columns: 1fr; }
   .seo-hub-grid { grid-template-columns: 1fr; }
   .seo-hub-grid > a { min-height: 220px; }
+  .about-values-grid { grid-template-columns: 1fr; }
+  .about-values-grid article { padding: 27px 24px; }
+  .about-story > .about-lede { font-size: 18px; }
   .card-image { height: 245px; }
   .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
   .gallery-card.gallery-wide { grid-column: span 1; }

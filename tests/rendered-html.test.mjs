@@ -15,6 +15,10 @@ test("renders SEO content into production HTML", async () => {
   assert.match(html, /"@type":"WebPage"/);
   assert.match(html, /Antalya turlarıyla Akdeniz’i/);
   assert.match(html, /coltur-logo\.jpg/);
+  assert.match(html, /1995 yılında kurulan/);
+  assert.match(html, /2783 numaralı A Grubu/);
+  assert.match(html, /Misyonumuz/);
+  assert.match(html, /Vizyonumuz/);
   assert.match(html, /id="root"><link rel="preload"/);
   assert.doesNotMatch(html, /github\.io|Bu bir arayüz demosudur|codex-preview/);
 });
